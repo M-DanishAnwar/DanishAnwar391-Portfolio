@@ -2,6 +2,16 @@
 
 A mesmerizing, advanced 3D portfolio website showcasing my vision as a tech creator and innovator. This project combines cutting-edge web technologies with artistic design to create an immersive experience.
 
+## ✅ Issues Resolved
+
+All Vercel deployment issues have been fixed:
+
+- ✅ Fixed invalid `@types/three` version (was `^0.166.1`, now `^0.165.0`)
+- ✅ Removed invalid `appDir` from `next.config.js` experimental section
+- ✅ Added missing `@vercel/analytics` dependency
+- ✅ Updated Three.js and related packages to compatible versions
+- ✅ Fixed Vercel configuration issues
+
 ## 🚀 Features
 
 - **Advanced 3D Graphics**: Built with Three.js and React Three Fiber
