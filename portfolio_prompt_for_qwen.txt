@@ -1,0 +1,134 @@
+Project: "Danish Anwar — 3D Tech + Fairy-Tale Portfolio"
+
+Repo target: (commit to the repository connected to this Qwen session). Create a new branch named: `feat/3d-portfolio-v1`.
+
+Primary goal:
+Create a production-ready, visually stunning, responsive **3D portfolio website** that showcases Danish Anwar's identity as a visionary tech creator. The site must be immersive, fast, accessible, and fully structured for further development. Use the repo for all code, assets, docs, CI and deployment configs.
+
+Design & UX brief (high-level):
+- Visual style: dark theme base with colorful, realistic 3D elements & glass/snow reflections; modern UI with clean typography, subtle rounded corners, and soft shadows. Blues + whites + subtle accent colors as the palette.
+- Experience: The site must feel like stepping into a fairy-tale tech world — continuous subtle animated effects (shiny sprinkles, electric pulses, flowing particle tails) that are interactive and performant.
+- Navigation: Single-page feel with sections (landing/hero, about, projects, 3D "explorations" gallery, resume/skills, contact). No permanent intrusive sidebars; main nav is a top floating menu that can expand (hidden hamburger for small screens). Provide keyboard navigation and deep-linking (URL hash / route per section).
+- Interaction examples: Cards you can "get inside" (open into a 3D scene), continuous particle trails around cards, live glass reflections, snow/frost effects, audio ambience toggle, ambient background audio with volume controls, and a toggle for reduced-motion / low-bandwidth mode.
+
+Tech stack & libraries (mandatory recommendations):
+- Framework: React + Next.js (app router) for SSR/ISR, SEO, and routing.
+- Styling: Tailwind CSS for utility-first styling; design tokens in a single config.
+- 3D: Three.js (React-three-fiber / @react-three/fiber) + drei helpers; use glTF/GLB models; include an optional Babylon.js fallback for complex scenes if necessary.
+- Animations: Framer Motion for UI animations; use post-processing / shader passes for glow, bloom, and glass.
+- Shaders: Custom GLSL fragment/vertex shaders for electric pulses, glass distortion, and snow effects (use react-three-fiber shaderMaterial patterns).
+- Sounds: WebAudio API + Howler.js (or tiny wrapper) for ambient and UI sounds; implement mute and volume UI.
+- Performance: use react-use-lazy, dynamic imports (next/dynamic), LOD for 3D assets, draco-compressed glTF, and a "reduced motion / low-power" toggle to disable heavy effects.
+- Accessibility: Lighthouse friendly (a11y), ARIA labels, keyboard navigable menus, focus states.
+- Testing: Basic end-to-end tests with Playwright (navigation flows), unit tests with Vitest + React Testing Library.
+- CI/CD: GitHub Actions for build, test, and deploy. Provide a workflow that builds and deploys to Vercel (or GitHub Pages if the user prefers).
+- Dev tools: Storybook for major UI components; local dev script with mocked 3D assets loading.
+- TypeScript everywhere. ESLint + Prettier config + husky git hooks for lint-staged.
+
+Core features to implement (deliverables):
+1. **Hero landing animation**  
+   - Full-screen 3D canvas hero (react-three-fiber) that animates in on first load:
+     * A central semi-transparent "crystal box" or "glass orb" containing a subtle 3D avatar/placeholder, particle flows, and a persona visualization as a floating card.
+     * Intro animation with text reveal: name (Danish Anwar), tagline (e.g., "Visionary Creator — Tech & Art"), with a sparkly "sprinkle" tail that follows the cursor (reduced on mobile).
+     * Auto-play ambient audio (muted by default, user-toggle visible).
+
+2. **About / Persona section**  
+   - Create an interactive visualization of Danish's persona as a large card with downloadable option. Provide a dynamic summary based on his characteristics: visionary, tech innovator, creative, ethical, ambitious.
+   - Animations must be subtle (card tilt on cursor, glass sheen).
+
+3. **Projects / Case studies**  
+   - Each project is a swipeable 3D card stack (horizontal carousel on wide screens + swipe on mobile). Each card should:
+     * Show a short summary, tech stack badges, animated 3D thumbnail (small glTF scene or live shader preview), and clickable "Enter" button that expands the card into a full-screen interactive 3D showcase.
+     * Include live code link (GitHub Repo), demo (if available), and detailed writeup (problem, approach, architecture, results).
+   - Provide placeholders for at least 4 sample projects: (IronMan-suit-prototype, GameEngine-R&D, Analog-Computing-Article, Personal-Tools).
+
+4. **3D Explorations gallery**  
+   - A separate immersive area where users can "walk into" 3D boxes or portals that reveal micro-experiences:
+     * "Glass Box" with snow + frost shader
+     * "Electric Chamber" with continuous electric pulses & interactive switches
+     * "Fairy-Tale Forest" minimal scene with parallax particle snow falling and soft lighting
+   - Use orbit controls plus keyboard WASD for optional exploration mode (toggleable).
+
+5. **Skills & Timeline**  
+   - Animated timeline with collapsible 3D nodes. Each node shows years, roles, and micro case examples. Use accessible markup for screen readers.
+
+6. **Contact / CTA**  
+   - Contact form (Netlify/Vercel serverless function or a suggested API) with spam protection (honey pot + rate limit).
+   - Downloadable resume (PDF), link to GitHub, LinkedIn, email, and a gentle CTA to "Collaborate on something visionary."
+
+7. **Settings drawer**  
+   - Toggle themes (Dark / Light), reduce motion, audio toggle, quality (High / Medium / Low). Persist settings in localStorage.
+
+8. **Admin / Content system (light)**  
+   - Projects should be stored as Markdown / MDX files in repo `/content/projects/` so the user can edit project data and images. Provide a simple script to regenerate static props.
+
+Code & repository expectations:
+- Clear folder structure:
+```
+/src
+/components
+/layouts
+/pages (or app/ if using Next.js app router)
+/three (3d scenes, shaders, loaders)
+/styles
+/content
+/public/assets
+/lib (audio, analytics, utils)
+/tests
+```
+- Comprehensive README.md: project overview, local setup, scripts, environment variables, deploy steps (Vercel), contribution guide, and how to add new projects or 3D scenes.
+- Add `design-tokens.json` for colors, spaces, fonts and provide Tailwind config to use tokens.
+- Provide a `manifest.json` and PWA support (installable).
+- Create Storybook stories for: Hero Canvas, ProjectCard, 3DSceneWrapper, Settings Drawer, Contact Form.
+- Create unit tests for core UI behaviors and one Playwright e2e test verifying main navigation and hero animation loads.
+
+Performance & production readiness:
+- Use code-splitting and lazy loading for heavy scenes. Provide a server/edge-rendered fallback for no-JS users (progressive enhancement).
+- Use image optimization (next/image) and compressed glTF assets; include draco support and compressed textures.
+- Lighthouse score target: 90+ on Performance/Accessibility/Best Practices.
+- Provide a `DEPLOY.md` explaining how to connect to Vercel and set environment variables.
+
+Developer ergonomics & automation:
+- Add Husky + lint-staged, GitHub Actions:
+- `ci.yml` runs TypeScript check, lint, tests, and Storybook build; on success it deploys to preview environment.
+- `deploy-prod.yml` deploys to Vercel on merge to main.
+- Provide CONTRIBUTING.md, ISSUE_TEMPLATE.md, PULL_REQUEST_TEMPLATE.md.
+
+UX copy & microcopy:
+- Provide concise, human-first copy for headings, CTAs, and UX hints. Use a visionary, gentle, confident tone. Example hero tagline: "I build tech that feels like a fairy tale — efficient, thoughtful, unforgettable."
+
+Assets & placeholders:
+- Include example glTF/GLB assets (small, included in `/public/assets/3d/`) generated procedurally or from safe placeholders. Provide a script to replace placeholders with final models.
+
+Deliver commit plan & PR structure:
+- Break the work into incremental commits with clear messages:
+1. `feat: init nextjs + typescript + tailwind + eslint + prettier`
+2. `feat: add hero 3d canvas scaffold (r3f) + persona image asset`
+3. `feat: implement project card + mdx content`
+4. `feat: add settings drawer + accessibility toggles`
+5. `test: add unit tests & e2e playwright`
+6. `ci: add GitHub Actions + deploy config`
+7. `docs: README + DEPLOY.md + CONTRIBUTING.md`
+- Create a first PR `feat/3d-portfolio-v1 -> main` with description of scope and a preview link.
+
+Important acceptance criteria (what to hand over):
+- A working preview/deploy URL (Vercel recommended).
+- Full repository changes pushed to the branch with above commits.
+- README with setup & deployment instructions.
+- Storybook hosted or build artifact included.
+- Playwright e2e test passing in CI.
+- Accessibility checks: ARIA attributes & keyboard focus navigation must work.
+- A simple video/gif (30s) in `/public/docs/preview.mp4` demonstrating main flows (hero, open project, 3D exploration).
+
+Tone & product design notes for implementation:
+- Make it cinematic but not gimmicky — polished motion, thoughtful pacing, and clear affordances.
+- Prioritize clarity: interactions must be discoverable and intuitive.
+- Provide fallback static UI for low-power devices.
+
+Finally, after building:
+- Create a simple `Demo Instructions` section in README that tells Danish (the owner) how to update projects, replace 3D models, and tweak theme Tokens.
+- Create one small script `tools/generate-assets.md` explaining how to add optimized GLB images and the necessary compress steps (draco, basis).
+
+Use the repository to push code and open the PR. Make sure each change is atomic and well-documented. If anything cannot be completed (e.g., heavy custom shaders requiring artist assets), provide a high-quality placeholder with instructions and hooks so Danish can add the final art later.
+
+Build this with the ambition, craft, and polish that matches Danish Anwar's vision — a technical portfolio that *feels* like stepping into a beautiful, futuristic fairy-tale world while clearly demonstrating mastery and projects.

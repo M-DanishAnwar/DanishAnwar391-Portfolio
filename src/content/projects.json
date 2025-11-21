@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Travel Explorer",
+    "description": "AI-powered travel recommendation system that suggests personalized destinations based on user preferences and current trends.",
+    "longDescription": "This project uses machine learning algorithms to analyze user preferences, travel patterns, and real-time data to provide personalized travel recommendations. The system incorporates natural language processing to understand user requests and provides immersive 3D previews of destinations.",
+    "tech": ["React", "Node.js", "TensorFlow", "MongoDB"],
+    "image": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "githubUrl": "#",
+    "demoUrl": "#",
+    "category": "AI/ML",
+    "year": 2023
+  },
+  {
+    "id": 2,
+    "title": "Virtual Tours",
+    "description": "Immersive 3D experiences for destinations allowing users to explore locations virtually before traveling.",
+    "longDescription": "This application creates photorealistic 3D environments of popular destinations using WebGL and Three.js. Users can navigate through virtual environments, interact with points of interest, and get detailed information about each location.",
+    "tech": ["Three.js", "WebXR", "Unity", "WebGL"],
+    "image": "https://images.unsplash.com/photo-1557804519-01e0a961c78e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "githubUrl": "#",
+    "demoUrl": "#",
+    "category": "3D/WebGL",
+    "year": 2023
+  },
+  {
+    "id": 3,
+    "title": "Travel Analytics",
+    "description": "Data-driven insights platform for travel businesses to understand customer behavior and optimize services.",
+    "longDescription": "A comprehensive analytics platform that processes large volumes of travel-related data to provide actionable insights. The platform features real-time dashboards, predictive analytics, and customizable reports for travel companies.",
+    "tech": ["Python", "D3.js", "MongoDB", "TensorFlow"],
+    "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "githubUrl": "#",
+    "demoUrl": "#",
+    "category": "Data Science",
+    "year": 2024
+  },
+  {
+    "id": 4,
+    "title": "Sustainable Travel",
+    "description": "Platform promoting eco-friendly travel options and carbon footprint tracking.",
+    "longDescription": "This platform helps travelers make environmentally conscious decisions by providing information about sustainable accommodations, transportation options, and activities. It includes a carbon footprint calculator and suggests ways to offset emissions.",
+    "tech": ["Next.js", "GraphQL", "PostgreSQL", "D3.js"],
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "githubUrl": "#",
+    "demoUrl": "#",
+    "category": "Sustainability",
+    "year": 2024
+  }
+]
