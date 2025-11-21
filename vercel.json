@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "settings": {
+    "maxDuration": 30,
+    "region": "iad1"
+  },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next",
+      "config": {
+        "serverless": true
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}

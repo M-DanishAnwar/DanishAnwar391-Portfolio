@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #60a5fa;
+  --secondary: #3b82f6;
+  --accent: #8b5cf6;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  color: var(--foreground);
+  background: linear-gradient(135deg, var(--background) 0%, #111111 100%);
+  transition: background 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Glassmorphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Animation classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+/* 3D card hover effect */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Snow effect */
+.snow-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.snow-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(6px 6px at 30% 40%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(4px 4px at 70% 20%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(6px 6px at 90% 90%, rgba(255, 255, 255, 0.6), transparent);
+  pointer-events: none;
+  animation: snowfall 20s linear infinite;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+/* Particle effect */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Shimmer effect */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(25deg);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -60%;
+  }
+  100% {
+    left: 120%;
+  }
+}
